@@ -2,6 +2,8 @@ const express=require("express")
 const cors = require("cors");
 const dotenv = require("dotenv")
 const mongoose = require("mongoose");
+const NotesRoute = require("./routes/NotesRoute");
+
 
 
 const app=express();
@@ -19,6 +21,7 @@ app.get("/", (req, res, next)=>{
     });
 
 });
+app.use("/notes", NotesRoute);
 const PORT=process.env.PORT;
 mongoose.connect(process.env.MONGO_URL)
 .then(()=>{
