@@ -1,9 +1,14 @@
 const CategoryModel = require("../NotesModel/CategoryModel");
 const NotesModel = require("../NotesModel/NotesModel");
+const UserModel = require("../NotesModel/UserModel");
 
 
 exports.getAllNotes = async (req, res) => {
-    const notes = await NotesModel.find().sort({createdAt: -1});
+    const id = req.user._id;
+    const notes = await NotesModel.find({UserID: id}).sort({createdAt: -1})
+    .populate("CategoryID", "Category");
+
+    
     if(notes.length<1){
         return res.status(400).json({error: "No notes present in the system!"});
     }
@@ -48,6 +53,7 @@ exports.createNote = async(req, res) => {
 
         if(isCategoryExists.length > 0){
             const newNote = await NotesModel.create({
+                UserID: req.user._id,
                 CategoryID: isCategoryExists[0]._id,
                 Title: trimmedTitle,
                 Content: trimmedContent
@@ -59,6 +65,7 @@ exports.createNote = async(req, res) => {
                 Category: trimmedCategory
             });
             const newNote = await NotesModel.create({
+                UserID: req.user._id,
                 CategoryID: newCat._id,
                 Title: trimmedTitle,
                 Content: trimmedContent

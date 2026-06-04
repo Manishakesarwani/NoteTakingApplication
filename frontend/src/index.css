@@ -4,3 +4,161 @@ body{
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+.header a:link, .header a:visited{
+  text-decoration: none;
+  color: #198754;
+  outline: none;
+}
+.header a:hover{
+  cursor: pointer;
+}
+.main .container-fluid{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.note{
+  width: 15%;
+  border: 1px solid #198754;
+  border-radius: 4px;
+  margin: 10px;
+  padding: 18px 10px;
+  position: relative;
+  box-shadow: 2px 2px #c9c9ca;
+  cursor: pointer;
+  transition: all ease-in 0.2s;
+}
+.note:hover{
+  box-shadow: none;
+}
+.main_content hr{
+  margin: 1px 0;
+}
+.title{
+  font-size: 18px;
+  text-transform: uppercase;
+}
+.content {
+    font-size: 14px;
+    color: grey;
+}
+.category {
+    font-size: 10px;
+    position: absolute;
+    right: 0;
+    color: grey;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-right: 5px;
+}
+.footer{
+  background-color: #198754;
+  color: white;
+}
+
+/* User model css */
+.header a:link, header a:visited{
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+
+.nav_button a, .nav_button button{
+    margin: 0 15px;
+}
+.nav_button button{
+    text-transform: uppercase;
+    padding: 10px 15px;
+    background: #198754;
+    cursor: pointer;
+    border: 1px solid #198754;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: all ease 0.2s;
+    color: #f8f9fa;
+}
+.nav_button button:hover{
+    background: none;
+    color: #198754;
+}
+.box {
+    padding: 20px 30px;
+    border: 1px solid #198754;
+    width: 50%;
+    margin: 5% auto;
+    border-radius: 10px;
+}
+fieldset{
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+.disabled_form{
+    pointer-events: none;
+}
+.comp2 .disabled_form, .comp1 .disabled_form button, .resent-otp .disabled_form button{
+    display: none;
+}
+.box form div{
+    margin: 10px 0;
+}
+.box form input{
+    display: block;
+    padding: 10px;
+    font-family: "Poppins", sans-serif;
+    width: 95%;
+    border:  1px solid #198754;
+    outline: none;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+.box form button{
+    width: 95%;
+    padding: 10px 15px;
+    background: #198754;
+    font-family: "Poppins", sans-serif;
+    border: 1px solid #198754;
+    text-transform: uppercase;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    cursor: pointer;
+    transition: all ease 0.2s;
+}
+.box form button:hover{
+    background: none;
+    color: #198754;
+}
+.box form label{
+    text-transform: uppercase;
+}
+.resent-otp .disabled{
+    pointer-events: none;
+}
+.resent-otp {
+    text-align: center;
+    width: 94%;
+}
+.resent-otp button {
+    cursor: pointer;
+    padding: 10px 15px;
+    background: none;
+    outline: none;
+    border: 1px solid #198754;
+    border-radius: 4px;
+    text-transform: uppercase;
+    color: #198754;
+    font-size: 11px;
+    transition: all ease-in 0.2s;
+}
+.resent-otp button:hover{
+    color: white;
+    background: #198754;
+}
+.blank_container{
+    text-align: center;
+    font-weight: 500;
+}

@@ -3,6 +3,11 @@ const mongoose = require("mongoose");
 const schema = mongoose.Schema;
 
 const NotesModel = new schema({
+    UserID:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "UserModel",
+        required: true
+    },
     CategoryID:{
         type: mongoose.Schema.Types.ObjectId,
         ref: "CategoryModel",
