@@ -190,3 +190,31 @@ fieldset{
     box-shadow: none;
     background: #f3f3f3;
 }
+/* Note creation form CSS */
+#note-form div {
+    width: 95% !important;
+}
+#note-form div label {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 15px;
+}
+#note-form div input, #note-form div textarea {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    outline: none;
+    border: 1px solid grey;
+    border-radius: 4px;
+    margin: 5px 0;
+    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+}
+/* Notes further information CSS */
+.note .dropdown{
+    float: right;
+    cursor: pointer;
+}
+.dropdown-toggle::after {
+    display: none !important;
+}

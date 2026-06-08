@@ -24,7 +24,7 @@ const Home = () => {
         <div className='container-fluid'>
           {error && <div className='blank_container'>{error}☹️</div>}
           {loading && <div>Loading...</div>}
-          {!error && notes && notes.map((n)=> <Note key={n._id} category={n.CategoryID.Category} title={n.Title} content={n.Content} />)}
+          {!error && notes && notes.map((n)=> <Note key={n._id} nid={n._id} category={n.CategoryID.Category} title={n.Title} content={n.Content} />)}
             {/* <Note category="Category" title="Title" content="Content" /> */}
         </div>
     </div>
