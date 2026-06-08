@@ -5,6 +5,8 @@ import App from './App';
 import { NotesContextProvider } from './context/NotesContext';
 import { UserEmailContextProvider } from './context/UserEmailContext';
 import { UserAuthenticateContextProvider } from './context/UserAuthenticateContext';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

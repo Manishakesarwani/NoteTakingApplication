@@ -38,6 +38,7 @@ export const NotesContextProvider = ({children}) => {
         notes: []
     });
 
+
     return (
         <NotesContext.Provider value={{...state, dispatch}}>
             {children}

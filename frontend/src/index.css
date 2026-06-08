@@ -162,3 +162,31 @@ fieldset{
     text-align: center;
     font-weight: 500;
 }
+
+/* SideBar CSS */
+.main{
+    position: relative;
+}
+.createButton{
+    width: 20%;
+    position: absolute;
+    left: 0;
+}
+.createButton>button{
+    outline: none;
+    background: transparent;
+    border: 1px solid #198754;
+    border-radius: 4px;
+    padding: 10px 15px;
+    margin: 0 auto;
+    margin: 15px 20px;
+    width: 40%;
+    letter-spacing: 1px;
+    box-shadow: 1px 1px #c9c9ca;
+    cursor: pointer;
+    transition: all ease-in 0.2s;
+}
+.createButton>button:hover{
+    box-shadow: none;
+    background: #f3f3f3;
+}

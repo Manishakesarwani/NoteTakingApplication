@@ -7,6 +7,8 @@ import 'react-toastify/ReactToastify.css';
 import { useUserAuthenticateContext } from './hooks/useUserAuthenticateContext';
 import AuthenticationPage from "./pages/AuthenticationPage";
 import SetNewPassword from "./pages/SetNewPassword";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 function App() {
 
