@@ -27,6 +27,11 @@ export const NotesContextReducer = (state, action) => {
             return {
                 notes: action.payload
             }
+        case "DELETE":
+            return {
+                ...state,
+                notes: state.notes.filter((el)=>el._id !== action.payload._id)
+            }
         default:
             return state;
     }

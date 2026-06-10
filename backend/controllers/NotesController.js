@@ -80,7 +80,7 @@ exports.updateNoteContent = async(req, res)=>{
     const {content} = req.body;
 
     if(!id){
-        return res.status(400).status({error: "Please share ID of the note to be updated."});
+        return res.status(400).json({error: "Please share ID of the note to be updated."});
     }
     else{
         const note = await NotesModel.findById(id);
@@ -112,7 +112,7 @@ exports.updateNoteTitle = async(req, res)=>{
     const {title} = req.body;
 
     if(!id){
-        return res.status(400).status({error: "Please share ID of the note to be updated."});
+        return res.status(400).json({error: "Please share ID of the note to be updated."});
     }
     else{
         const note = await NotesModel.findById(id);
@@ -151,7 +151,7 @@ exports.updateNoteCategory = async(req, res)=>{
     const {category} = req.body;
 
     if(!id){
-        return res.status(400).status({error: "Please share ID of the note to be updated."});
+        return res.status(400).json({error: "Please share ID of the note to be updated."});
     }
     else{
         const trimmedCategory = category.trim();
@@ -214,8 +214,8 @@ exports.removeNote = async(req, res) => {
             return res.status(400).json({error: "No note found!"});
         }
         else{
-            await NotesModel.deleteOne({_id: note._id});
-            return res.status(200).json({message: `Note - ${id} removed successfully.`});
+            const note_r = await NotesModel.findOneAndDelete({_id: note._id});
+            return res.status(200).json(note_r);
         }
     }
 }

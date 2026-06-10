@@ -9,6 +9,7 @@ import AuthenticationPage from "./pages/AuthenticationPage";
 import SetNewPassword from "./pages/SetNewPassword";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import UpdateNotes from './pages/UpdateNotes';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           <Route path='/' element={user ? <Home /> : <Navigate to="/authenticate" />}></Route>
           <Route path="/authenticate" element={!user ? <AuthenticationPage /> : <Navigate to="/" />} />
           <Route path="/forgot-password" element={!user ? <SetNewPassword /> : <Navigate to="/" />} />
+          <Route path='/update/:nid' element={user ? <UpdateNotes /> : <Navigate to="/authenticate" />}/>
         </Routes>
         <Footer />
       </BrowserRouter> 
