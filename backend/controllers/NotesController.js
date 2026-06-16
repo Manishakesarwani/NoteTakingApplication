@@ -48,6 +48,7 @@ exports.createNote = async(req, res) => {
         }
 
         const isCategoryExists = await CategoryModel.find({
+            UserID: req.user._id,
             Category: { $regex: new RegExp(`^${trimmedCategory}$`, 'i') }
         });
 
@@ -62,6 +63,7 @@ exports.createNote = async(req, res) => {
         }
         else{
             const newCat = await CategoryModel.create({
+                UserID: req.user._id,
                 Category: trimmedCategory
             });
             const newNote = await NotesModel.create({
@@ -175,6 +177,7 @@ exports.updateNoteCategory = async(req, res)=>{
         }  
         else{
             const isCategoryExists = await CategoryModel.find({
+                UserID: req.user._id,
                 Category: { $regex: new RegExp(`^${trimmedCategory}$`, 'i') }
             });
             if(isCategoryExists.length > 0){
@@ -183,15 +186,18 @@ exports.updateNoteCategory = async(req, res)=>{
                     return res.status(400).json({error: "Category should be different than existing one."});
                 }
                 const updatedNote = await NotesModel.findOneAndUpdate({_id: note._id}, {
+                    UserID: req.user._id,
                     CategoryID: isCategoryExists[0]._id
                 }, {returnDocument: 'after'});
                 return res.status(200).json(updatedNote);
             }
             else{
                 const newCat = await CategoryModel.create({
+                    UserID: req.user._id,
                     Category: trimmedCategory
                 });
                 const updatedNote = await NotesModel.findOneAndUpdate({_id: note._id}, {
+                    UserID: req.user._id,
                     CategoryID: newCat._id
                 }, {returnDocument: 'after'});
                 return res.status(200).json(updatedNote);

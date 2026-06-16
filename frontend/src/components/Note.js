@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import { useNoteRemove } from '../hooks/useNoteRemove';
 import Swal from 'sweetalert2';
 
-const Note = ({nid, category, title, content}) => {
+const Note = ({nid, category, title, content, activeCategory, handleGetNotes}) => {
 
   const {handleDeleteNote} = useNoteRemove();
 
@@ -29,6 +29,9 @@ const Note = ({nid, category, title, content}) => {
   }
   const handleDeleteConfirm = async() => {
     await handleDeleteNote(nid);
+    // window.location.reload();
+    // console.log(cid);
+    await handleGetNotes(activeCategory);
   }
 
 

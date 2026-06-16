@@ -10,11 +10,15 @@ export const useGetNotes = () => {
     const [loading, setLoading] = useState(true);
     const {user} = useUserAuthenticateContext();
 
-    const handleGetNotes = async() => {
+    const handleGetNotes = async(CategoryID) => {
         setError("");
         setLoading(true);
 
-        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/notes/get-all-notes`,{
+        // console.log(CategoryID);
+
+        let url= (CategoryID === "") ? `${process.env.REACT_APP_BACKEND_URL}/notes/get-all-notes` : `${process.env.REACT_APP_BACKEND_URL}/categories/get-category-notes/${CategoryID}`;
+
+        const response = await fetch(url,{
             method: "GET",
             headers:{
                 "Content-Type": "application/json",
@@ -23,6 +27,8 @@ export const useGetNotes = () => {
         });
 
         const json = await response.json();
+
+        // console.log(json);
 
         if(!response.ok){
             setError(json.error);

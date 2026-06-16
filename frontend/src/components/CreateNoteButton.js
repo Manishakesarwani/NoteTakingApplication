@@ -2,8 +2,9 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import { useEffect, useRef, useState } from 'react';
 import useCreateNote from '../hooks/useCreateNote';
 import { useGetNotes } from '../hooks/useGetNotes';
+import Categories from './Categories';
 
-const CreateNoteButton = () => {
+const CreateNoteButton = ({onSelectCategory, activeCategory}) => {
 
     const {loading, createNote} = useCreateNote();
     const {handleGetNotes} = useGetNotes();
@@ -47,7 +48,7 @@ const CreateNoteButton = () => {
         const dismiss_btn = document.getElementById('cancel');
         dismiss_btn.click();
 
-        await handleGetNotes();
+        await handleGetNotes(activeCategory);
 
         setCat("");
         setTitle("");
@@ -87,6 +88,7 @@ const CreateNoteButton = () => {
                 </div>
             </div>
         </div>
+        <Categories onSelectCategory={onSelectCategory} />
     </div>
   )
 }

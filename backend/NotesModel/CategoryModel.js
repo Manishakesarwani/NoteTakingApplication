@@ -3,10 +3,14 @@ const mongoose = require("mongoose");
 const schema = mongoose.Schema;
 
 const CategoryModel = new schema({
+    UserID:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "UserModel",
+        required: true
+    },
     Category:{
         type: String,
-        required: true,
-        unique: true
+        required: true
     }
 }, {timestamps: true});
 

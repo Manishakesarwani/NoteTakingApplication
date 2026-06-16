@@ -6,7 +6,7 @@ const NotesRoute = express.Router();
 
 NotesRoute.use(RequireAuth);
 
-NotesRoute.get("/get-all-notes", getAllNotes)
+NotesRoute.get("/get-all-notes", getAllNotes);
 
 NotesRoute.post("/create-note", createNote);
 
@@ -17,5 +17,6 @@ NotesRoute.patch("/update-note/title/:id", updateNoteTitle);
 NotesRoute.patch("/update-note/category/:id", updateNoteCategory);
 
 NotesRoute.delete("/remove-note/:id", removeNote);
+
 
 module.exports=NotesRoute

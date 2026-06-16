@@ -172,7 +172,7 @@ fieldset{
     position: absolute;
     left: 0;
 }
-.createButton>button{
+.createButton>button, .categories>button{
     outline: none;
     background: transparent;
     border: 1px solid #198754;
@@ -186,7 +186,7 @@ fieldset{
     cursor: pointer;
     transition: all ease-in 0.2s;
 }
-.createButton>button:hover{
+.createButton>button:hover, .categories>button:hover{
     box-shadow: none;
     background: #f3f3f3;
 }
@@ -215,7 +215,7 @@ fieldset{
     float: right;
     cursor: pointer;
 }
-.dropdown-toggle::after {
+.note .dropdown-toggle::after {
     display: none !important;
 }
 /* Update fields CSS */

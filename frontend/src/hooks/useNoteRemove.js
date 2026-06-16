@@ -32,6 +32,7 @@ export const useNoteRemove = () => {
                 toastId: "Notes-Remove-Success"
             });
             dispatch({type: "DELETE", payload: json});
+            // console.log("removed note: ", json);
         }
     }
 

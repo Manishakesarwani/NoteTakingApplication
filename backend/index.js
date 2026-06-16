@@ -4,6 +4,7 @@ const dotenv = require("dotenv")
 const mongoose = require("mongoose");
 const NotesRoute = require("./routes/NotesRoute");
 const UserRoute = require("./routes/userRoutes");
+const CategoryRoute = require("./routes/CategoryRoute");
 
 
 const app=express();
@@ -27,6 +28,7 @@ app.get("/", (req, res, next)=>{
 });
 app.use("/user", UserRoute);
 app.use("/notes", NotesRoute);
+app.use("/categories", CategoryRoute);
 const PORT=process.env.PORT;
 mongoose.connect(process.env.MONGO_URL)
 .then(()=>{
