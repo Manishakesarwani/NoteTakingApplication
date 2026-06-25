@@ -1,13 +1,11 @@
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { useEffect, useRef, useState } from 'react';
 import useCreateNote from '../hooks/useCreateNote';
-import { useGetNotes } from '../hooks/useGetNotes';
 import Categories from './Categories';
 
-const CreateNoteButton = ({onSelectCategory, activeCategory}) => {
+const CreateNoteButton = ({onSelectCategory, activeCategory, handleGetNotes, setcatname}) => {
 
     const {loading, createNote} = useCreateNote();
-    const {handleGetNotes} = useGetNotes();
 
     const [cat, setCat] = useState("");
     const [title, setTitle] = useState("");
@@ -88,7 +86,7 @@ const CreateNoteButton = ({onSelectCategory, activeCategory}) => {
                 </div>
             </div>
         </div>
-        <Categories onSelectCategory={onSelectCategory} />
+        <Categories onSelectCategory={onSelectCategory} setcatname={setcatname} />
     </div>
   )
 }

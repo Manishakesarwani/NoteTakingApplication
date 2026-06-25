@@ -12,13 +12,48 @@ body{
 .header a:hover{
   cursor: pointer;
 }
-.main .container-fluid{
+.main .notes{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  width: 100%;
+}
+.main .container-fluid{
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  margin: 10px auto;
+}
+.main .active_category{
+    border: 1px solid #198754;
+    border-radius: 4px;
+}
+.category_header .dropdown-toggle{
+    float: right;
+}
+.category_header .dropdown-toggle{
+    cursor: pointer;
+}
+.category_header .dropdown-toggle::after{
+    display: none !important;
+}
+.category_name{
+    text-align: center;
+}
+.active_category hr{
+    color: #198754;
+}
+.active_category .category_header .dropdown{
+    margin-top: 20px;
+}
+.category_text{
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #808080;
 }
 .note{
-  width: 15%;
+  width: 20%;
   border: 1px solid #198754;
   border-radius: 4px;
   margin: 10px;

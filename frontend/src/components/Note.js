@@ -1,11 +1,12 @@
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import { useNoteRemove } from '../hooks/useNoteRemove';
 import Swal from 'sweetalert2';
 
-const Note = ({nid, category, title, content, activeCategory, handleGetNotes}) => {
+const Note = ({nid, category, title, content, activeCategory, handleGetNotes, setcatname}) => {
 
   const {handleDeleteNote} = useNoteRemove();
+  const navigate = useNavigate();
 
   const handleDelete = (e) => {
     e.preventDefault();
@@ -31,7 +32,10 @@ const Note = ({nid, category, title, content, activeCategory, handleGetNotes}) =
     await handleDeleteNote(nid);
     // window.location.reload();
     // console.log(cid);
-    await handleGetNotes(activeCategory);
+    // await handleGetNotes(activeCategory);
+    navigate("/");
+    setcatname("");
+    await handleGetNotes("");
   }
 
 

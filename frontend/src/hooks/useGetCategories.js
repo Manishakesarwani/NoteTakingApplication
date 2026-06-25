@@ -25,6 +25,10 @@ export const useGetCategories = () => {
             setCategories(json);
             setLoading(false);
         }
+        if(!response.ok){
+            setCategories([]);
+            setLoading(false);
+        }
     }
   return {categories, loading, handleCategoryDropDown}
 }

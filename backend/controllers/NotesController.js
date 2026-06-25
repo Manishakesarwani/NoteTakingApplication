@@ -220,8 +220,16 @@ exports.removeNote = async(req, res) => {
             return res.status(400).json({error: "No note found!"});
         }
         else{
+            // console.log(note.CategoryID);
             const note_r = await NotesModel.findOneAndDelete({_id: note._id});
+            const category = await NotesModel.find({CategoryID:note.CategoryID});
+
+            if(category.length<1){
+                await CategoryModel.findOneAndDelete({_id:note.CategoryID});
+            }
+            // console.log(category);
             return res.status(200).json(note_r);
+
         }
     }
 }
