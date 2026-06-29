@@ -189,6 +189,13 @@ exports.updateNoteCategory = async(req, res)=>{
                     UserID: req.user._id,
                     CategoryID: isCategoryExists[0]._id
                 }, {returnDocument: 'after'});
+                const A_category = await NotesModel.find({CategoryID:note.CategoryID});
+
+                // console.log(A_category);
+
+                if(A_category.length<1){
+                    await CategoryModel.findOneAndDelete({_id:note.CategoryID});
+                }
                 return res.status(200).json(updatedNote);
             }
             else{
@@ -200,6 +207,13 @@ exports.updateNoteCategory = async(req, res)=>{
                     UserID: req.user._id,
                     CategoryID: newCat._id
                 }, {returnDocument: 'after'});
+                const A_category = await NotesModel.find({CategoryID:note.CategoryID});
+
+                // console.log(A_category);
+
+                if(A_category.length<1){
+                    await CategoryModel.findOneAndDelete({_id:note.CategoryID});
+                }
                 return res.status(200).json(updatedNote);
             }
             

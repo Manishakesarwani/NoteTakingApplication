@@ -328,3 +328,41 @@ fieldset{
     background: transparent;
     color: #198754;
 }
+/* Rename category CSS update */
+.rename_category input{
+    padding: 5px 15px;
+    outline: none;
+    border: 1px solid #198754;
+    border-radius: 4px;
+    font-family: "Poppins", sans-serif;
+}
+.rename_category div{
+    display: inline-block;
+    margin: 0 10px;
+}
+.navigation_buttons button{
+    margin: 0 10px;
+    padding: 5px 20px;
+    font-family: "Poppins", sans-serif;
+    outline: none;
+    color: white;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: all ease-in 0.3s;
+}
+.update_cat{
+    border: 1px solid #198754;
+    background: #198754;
+}
+.cancel{
+    border: 1px solid #6c757d;
+    background: #6c757d;
+}
+.navigation_buttons .update_cat:hover{
+    background: none;
+    color: #198754;
+}
+.navigation_buttons .cancel:hover{
+    background: none;
+    color: #6c757d;
+}

@@ -66,3 +66,58 @@ exports.removeCategory = async(req, res) => {
         }
     }
 }
+
+exports.renameCategory = async(req, res)=>{
+    const {id} = req.params;
+    const {category} = req.body;
+
+    if(!id){
+        return res.status(400).json({error: "Please share ID of the category to be updated."});
+    }
+    else{
+        const trimmedCategory = category.trim();
+        const categoryRegex = /^[a-zA-Z0-9 _-]+$/;
+        const cat = await CategoryModel.findById(id);
+
+        if(!cat){
+            return res.status(400).json({error: "No category found!"});
+        }
+        else if(!category){
+            return res.status(400).json({error: "Please mention the category to be updated."});
+        }
+        else if(!trimmedCategory){
+            return res.status(400).json({error: "Category cannot contain blank spaces."});
+        }
+        else if(trimmedCategory.length > 15){
+            return res.status(400).json({error: "Category cannot exceed 15 characters."});
+        }
+        else if(!categoryRegex.test(trimmedCategory)){
+            return res.status(400).json({error: "Category can only contain letters, numbers, spaces, hyphens, and underscores."});
+        }  
+        else{
+            const isCategoryExists = await CategoryModel.find({
+                UserID: req.user._id,
+                Category: { $regex: new RegExp(`^${trimmedCategory}$`, 'i') }
+            });
+            if(isCategoryExists.length > 0){
+                // console.log(note.CategoryID, isCategoryExists[0]._id);
+                if(cat._id.equals(isCategoryExists[0]._id)){
+                    return res.status(400).json({error: "Category name should be different than existing one."});
+                }
+                else{
+                    return res.status(400).json({error: "Category name already exists!"});
+                }
+            }
+            else{
+                const updatedCat = await CategoryModel.findOneAndUpdate({
+                    UserID: req.user._id,
+                    _id: cat._id
+                }, {
+                    Category: trimmedCategory
+                }, {returnDocument: 'after'});
+                return res.status(200).json(updatedCat);
+            }
+            
+        }
+    }
+}

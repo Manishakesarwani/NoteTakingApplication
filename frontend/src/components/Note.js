@@ -3,7 +3,7 @@ import {Link, useNavigate} from "react-router-dom";
 import { useNoteRemove } from '../hooks/useNoteRemove';
 import Swal from 'sweetalert2';
 
-const Note = ({nid, category, title, content, activeCategory, handleGetNotes, setcatname}) => {
+const Note = ({nid, category, title, content, activeCategory, handleGetNotes, setcatname, onSelectCategory}) => {
 
   const {handleDeleteNote} = useNoteRemove();
   const navigate = useNavigate();
@@ -35,6 +35,7 @@ const Note = ({nid, category, title, content, activeCategory, handleGetNotes, se
     // await handleGetNotes(activeCategory);
     navigate("/");
     setcatname("");
+    onSelectCategory("");
     await handleGetNotes("");
   }
 
